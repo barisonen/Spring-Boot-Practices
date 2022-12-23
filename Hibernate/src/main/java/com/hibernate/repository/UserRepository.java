@@ -1,5 +1,6 @@
 package com.hibernate.repository;
 
+import com.hibernate.entity.MyDto;
 import com.hibernate.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -17,4 +18,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     @Query(value = "SELECT * FROM User u WHERE age > ?1", nativeQuery = true)
     List<User> exercise4(int age);
+
+    @Query(value = "SELECT name, surname FROM User", nativeQuery = true)
+    List<MyDto> exercise5();
 }

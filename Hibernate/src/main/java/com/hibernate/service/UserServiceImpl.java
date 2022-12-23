@@ -1,11 +1,13 @@
 package com.hibernate.service;
 
+import com.hibernate.entity.MyDto;
 import com.hibernate.entity.User;
 import com.hibernate.repository.EMRepository;
 import com.hibernate.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -26,6 +28,9 @@ public class UserServiceImpl implements UserService {
         //return userRepository.exercise3(i);
         //return emRepository.exercise(i);
         //return emRepository.exercise2(i);
-        return emRepository.exercise3();
+        //return emRepository.exercise3();
+        List<MyDto> dto = userRepository.exercise5();
+        dto.forEach(o -> System.out.println(o.getName() + "-" + o.getSurname()));
+        return new ArrayList<>();
     }
 }
