@@ -29,16 +29,17 @@ public class ChatController {
             adminStarted = true;
             startAdmin();
         }
+
         final String time = new SimpleDateFormat("HH:mm").format(new Date());
         return new OutputMessage(message.getFrom(), message.getText(), time);
     }
 
-    @Scheduled(fixedRate = 3000)
+    @Scheduled(fixedRate = 10000)
     public void startAdmin() {
 
         final String time = new SimpleDateFormat("HH:mm").format(new Date());
         simpMessagingTemplate.convertAndSend("/topic/messages",
-                new OutputMessage("Admin", "I talk too much", time));
+                new OutputMessage("Admin", "I talk too much (every 10 secs)", time));
     }
 
 }
