@@ -39,7 +39,7 @@ public class UserController {
 
     @CacheEvict(value = "users", allEntries = true)
     @DeleteMapping("/{id}")
-    public void deleteUserById(@PathVariable Long id) {
+    public void deleteUserById(@PathVariable Long id) throws UserNotFoundException {
         LOG.info("deleting person with id {}", id);
         userService.delete(id);
     }

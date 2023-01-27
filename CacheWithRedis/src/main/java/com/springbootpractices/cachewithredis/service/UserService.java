@@ -27,8 +27,12 @@ public class UserService {
         }
     }
 
-    public void delete(Long id) {
-        userRepository.deleteById(id);
+    public void delete(Long id) throws UserNotFoundException {
+        try {
+            userRepository.deleteById(id);
+        } catch (Exception e) {
+            throw new UserNotFoundException("user not found");
+        }
     }
 
     public User update(User user) throws UserNotFoundException {
