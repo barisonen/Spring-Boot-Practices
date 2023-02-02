@@ -1,4 +1,4 @@
-# Jwt Auth System <br/><br/>
+# Jwt Auth System <br/>
 Enter your my sql db credentials and a 512 bit base 64 secret key to run configurations.<br/><br/>
 Try and fail to see the secured content: <br/>
 **GET:** http://localhost:8080/secured-controller/access <br/><br/>
