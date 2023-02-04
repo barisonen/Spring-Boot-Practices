@@ -30,7 +30,7 @@ Paste the token in header (Authorization: Bearer _**token**_)<br/>
 **Authorization**<br/>
 See that you cannot access admin data:<br/>
 **GET:** http://localhost:8080/secured-controller/admin <br/><br/>
-Make yourself an admin:
+Make yourself an admin: <br/>
 **GET:** http://localhost:8080/secured-controller/makeMeAdmin <br/><br/>
 Check again: <br/>
 **GET:** http://localhost:8080/secured-controller/admin <br/><br/>
