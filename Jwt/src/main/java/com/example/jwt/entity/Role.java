@@ -1,7 +1,25 @@
 package com.example.jwt.entity;
 
-public enum Role {
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-    USER,
-    ADMIN
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "role")
+public class Role {
+
+    @Id
+    @GeneratedValue()
+    private Integer id;
+
+    @Enumerated(EnumType.STRING)
+    @Column
+    private RoleEnum name;
+
 }

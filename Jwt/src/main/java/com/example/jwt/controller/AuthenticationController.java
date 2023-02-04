@@ -3,6 +3,7 @@ package com.example.jwt.controller;
 import com.example.jwt.controller.param.AuthenticationResponse;
 import com.example.jwt.controller.param.SignInRequest;
 import com.example.jwt.controller.param.SignUpRequest;
+import com.example.jwt.exception.UserExistsException;
 import com.example.jwt.service.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -20,7 +21,7 @@ public class AuthenticationController {
     @PostMapping("/signUp")
     public ResponseEntity<AuthenticationResponse> signUp(
             @RequestBody SignUpRequest signUpRequest
-    ) {
+    ) throws UserExistsException {
         return ResponseEntity.ok(authenticationService.signUp(signUpRequest));
     }
     @PostMapping("/signIn")
