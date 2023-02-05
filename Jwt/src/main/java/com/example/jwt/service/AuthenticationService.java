@@ -9,6 +9,7 @@ import com.example.jwt.entity.RoleEnum;
 import com.example.jwt.entity.User;
 import com.example.jwt.exception.UnauthorizedException;
 import com.example.jwt.exception.UserExistsException;
+import com.example.jwt.repository.RoleRepository;
 import com.example.jwt.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -25,22 +26,22 @@ import java.util.Set;
 @RequiredArgsConstructor
 public class AuthenticationService {
 
-    private final UserRepository repository;
+    private final UserRepository userRepository;
+    private final RoleRepository roleRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtUtil jwtUtil;
     private final AuthenticationManager authenticationManager;
 
     public AuthenticationResponse signUp(SignUpRequest signUpRequest) throws UserExistsException {
 
-        Optional<User> user = repository.findByEmail(signUpRequest.getEmail());
+        Optional<User> user = userRepository.findByEmail(signUpRequest.getEmail());
 
         if (user.isPresent()) {
             throw new UserExistsException("User exists");
         }
 
         Set<Role> roles = new HashSet<>();
-        Role role = new Role();
-        role.setName(RoleEnum.ROLE_USER);
+        Role role = getRole(RoleEnum.ROLE_USER);
         roles.add(role);
 
         var newUser = User.builder()
@@ -51,13 +52,24 @@ public class AuthenticationService {
                 .roles(roles)
                 .build();
 
-        repository.save(newUser);
+        userRepository.save(newUser);
 
         var jwtToken = jwtUtil.generateToken(newUser);
 
         return AuthenticationResponse.builder()
                 .token(jwtToken)
                 .build();
+    }
+
+    private Role getRole(RoleEnum roleUser) {
+        Optional<Role> userRole = roleRepository.findRoleByName(roleUser);
+        if(userRole.isPresent()) {
+            return userRole.get();
+        } else {
+            Role newRole = new Role();
+            newRole.setName(roleUser);
+            return newRole;
+        }
     }
 
     public AuthenticationResponse signIn(SignInRequest signInRequest) {
@@ -68,7 +80,7 @@ public class AuthenticationService {
                 )
         );
 
-        var user = repository.findByEmail(signInRequest.getEmail())
+        var user = userRepository.findByEmail(signInRequest.getEmail())
                 .orElseThrow();
 
         var jwtToken = jwtUtil.generateToken(user);
@@ -80,14 +92,13 @@ public class AuthenticationService {
 
     public void makeAdmin() throws UnauthorizedException {
         String email = SecurityContextHolder.getContext().getAuthentication().getName();
-        Optional<User> user = repository.findByEmail(email);
+        Optional<User> user = userRepository.findByEmail(email);
         if(user.isPresent()) {
             Set<Role> roles = user.get().getRoles();
-            Role adminRole = new Role();
-            adminRole.setName(RoleEnum.ROLE_ADMIN);
+            Role adminRole = getRole(RoleEnum.ROLE_ADMIN);
             roles.add(adminRole);
             user.get().setRoles(roles);
-            repository.save(user.get());
+            userRepository.save(user.get());
         }
         else {
             throw new UnauthorizedException("you are not logged in!");
