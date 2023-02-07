@@ -1,0 +1,40 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: baris
+      changes:
+      - createTable:
+          tableName: another_person
+          columns:
+          - column:
+              name: id
+              type: int
+              autoIncrement: true
+              constraints:
+                primaryKey: true
+                nullable: false
+          - column:
+              name: name
+              type: varchar(50)
+              constraints:
+                nullable: false
+          - column:
+              name: surname
+              type: varchar(50)
+              constraints:
+                nullable: false
+  - changeSet:
+      id: 2
+      author: barisagain
+      changes:
+      - insert:
+          columns:
+          - column:
+              name: name
+              value: baris
+          - column:
+              name: surname
+              value: onen
+          dbms: '!h2, mysql'
+          schemaName: liquibaseschema
+          tableName: another_person

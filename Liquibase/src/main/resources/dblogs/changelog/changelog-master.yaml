@@ -1,0 +1,34 @@
+databaseChangeLog:
+  - changeSet:
+      id: createTable
+      author: baris
+      changes:
+      - sqlFile:
+          dbms: mysql
+          encoding: utf8
+          path: changelog/changes-xml/1-create-table.sql
+          relativeToChangelogFile: true
+          splitStatements: true
+          stripComments: true
+  - changeSet:
+      id: insertIntoTable
+      author: baris
+      changes:
+      - sqlFile:
+          dbms: mysql
+          encoding: utf8
+          path: changelog/changes-xml/2-insertinto-table.sql
+          relativeToChangelogFile: true
+          splitStatements: true
+          stripComments: true
+  - changeSet:
+      id: updateTable
+      author: baris
+      changes:
+      - sqlFile:
+          dbms: mysql
+          encoding: utf8
+          path: changelog/changes-xml/3-update-table.sql
+          relativeToChangelogFile: true
+          splitStatements: true
+          stripComments: true
