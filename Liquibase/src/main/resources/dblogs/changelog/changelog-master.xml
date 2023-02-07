@@ -11,5 +11,6 @@
     <include file="dblogs/changelog/changes/5-add-table-column.sql"/>
     <include file="dblogs/changelog/changes/6-insertinto-modified-table.sql"/>
     <include file="dblogs/changelog/changes/7-update-old-entities.sql"/>
+    <include file="dblogs/changelog/changes/8-insert-with-xml.xml"/>
 </databaseChangeLog>
 

@@ -1,0 +1,1 @@
+UPDATE person SET surname = 'modified_onen' WHERE name = 'baris';
