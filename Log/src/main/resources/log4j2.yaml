@@ -1,0 +1,38 @@
+Configuration:
+  name: MyLogger
+
+  Properties:
+    Property:
+      name: log-path
+      value: "logs"
+
+  Appenders:
+    Console:
+      name: Console_Appender
+      target: SYSTEM_OUT
+      PatternLayout:
+        pattern: "%d{yyyy-MM-dd HH.mm.ss.SSS} %-5level %C %M %msg%n"
+
+    RollingFile:
+      - name: RollingFile_Appender
+        fileName: ${log-path}/errors.log
+        filePattern: "logs/archive/errors.log.%d{yyyy-MM-dd-hh-mm}.gz"
+        Filters:
+          ThresholdFilter:
+            level: error
+            onMatch: ACCEPT
+            onMismatch: DENY
+        PatternLayout:
+          pattern: "Error caught: Date:%d{yyyy-MM-dd HH.mm.ss.SSS} Level:%-5level Source:%C:%line Method:%M%n %msg%n"
+        Policies:
+          TimeBasedTriggeringPolicy:
+            interval: 1
+        DefaultRollOverStrategy:
+          max: 30
+
+  Loggers:
+    Root:
+      level: debug
+      AppenderRef:
+        - ref: Console_Appender
+        - ref: RollingFile_Appender
