@@ -1,4 +1,0 @@
-Error caught: Date:2023-02-24 16.44.06.948 Level:ERROR Source:com.example.log.DemoController:13 Method:logSomething
- some error
-Error caught: Date:2023-02-24 16.44.06.956 Level:FATAL Source:com.example.log.DemoController:16 Method:logSomething
- some fatal
