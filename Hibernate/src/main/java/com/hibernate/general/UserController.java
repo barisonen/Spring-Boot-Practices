@@ -1,7 +1,5 @@
-package com.hibernate;
+package com.hibernate.general;
 
-import com.hibernate.general.User;
-import com.hibernate.general.UserService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

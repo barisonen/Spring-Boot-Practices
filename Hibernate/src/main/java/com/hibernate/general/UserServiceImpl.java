@@ -1,11 +1,13 @@
 package com.hibernate.general;
 
 import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@RequiredArgsConstructor
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -13,10 +15,6 @@ public class UserServiceImpl implements UserService {
 
     private final EMRepository emRepository;
 
-    public UserServiceImpl(UserRepository userRepository, EMRepository emRepository) {
-        this.userRepository = userRepository;
-        this.emRepository = emRepository;
-    }
     @Override
     @Transactional
     public List<User> exercise(int i) {
