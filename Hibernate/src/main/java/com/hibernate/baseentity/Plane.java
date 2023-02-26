@@ -10,11 +10,6 @@ import lombok.Setter;
 @Table(name = "plane")
 public class Plane extends Vehicle {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private Long id;
-
     @Column(name = "plane_name")
     private String planeName;
 }

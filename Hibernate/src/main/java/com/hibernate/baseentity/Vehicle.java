@@ -12,6 +12,11 @@ import java.util.Date;
 @MappedSuperclass
 public class Vehicle {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private Long id;
+
     @CreationTimestamp
     @Column(name = "date_created")
     private Date dateCreated;
