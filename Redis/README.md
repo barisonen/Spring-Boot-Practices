@@ -1,7 +1,4 @@
 # Caching with Redis
-<br/><br/>
-_General Idea belongs to Shubham from DigitalOcean. I created, worked, enhanced the project._
-<br/><br/>
 
 This project is about a social media where users with more than 10000 followers are cached because they are likely to be searched more often. <br/>
 <br/>
@@ -20,12 +17,27 @@ However the first user is not cached and **Getting user with ID 1** is logged ev
 **PUT:** http://localhost:8080/user/update <br/>
 with body: <br/>
 { <br/>
-    "id": 1, <br/>
-    "name": "baris", <br/>
-    "followers": 15000 <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;"id": 1, <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;"name": "baris", <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;"followers": 15000 <br/>
 } <br/>
 
 After this request user 1 is also cached. <br/>
 
 **Clear the cache:** <br/>
 **DELETE:** http://localhost:8080/user/1 (deletes the user with id 1, also clears the cache)
+# Redis Repositories
+**POST:** http://localhost:8080/redis-repository-example/create-employee
+with body:<br/>
+{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;"name": "baris",<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;"surname": "onen"<br/>
+}<br/><br/>
+**POST:** http://localhost:8080/redis-repository-example/create-employee
+with body:<br/>
+{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;"name": "baris",<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;"surname": "onen"<br/>
+}<br/><br/>
+**GET:** http://localhost:8080/redis-repository-example/get-employee?name=osman <br/><br/>
+**GET:** http://localhost:8080/redis-repository-example/get-employees

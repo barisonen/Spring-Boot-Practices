@@ -1,4 +1,4 @@
-package com.springbootpractices.cachewithredis.model;
+package com.springbootpractices.redis.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;

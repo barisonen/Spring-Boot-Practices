@@ -1,6 +1,6 @@
-package com.springbootpractices.cachewithredis.controller;
+package com.springbootpractices.redis.controller;
 
-import com.springbootpractices.cachewithredis.exception.UserNotFoundException;
+import com.springbootpractices.redis.exception.UserNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

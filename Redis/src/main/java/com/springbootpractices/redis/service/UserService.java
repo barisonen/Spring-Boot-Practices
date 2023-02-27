@@ -1,8 +1,8 @@
-package com.springbootpractices.cachewithredis.service;
+package com.springbootpractices.redis.service;
 
-import com.springbootpractices.cachewithredis.exception.UserNotFoundException;
-import com.springbootpractices.cachewithredis.model.User;
-import com.springbootpractices.cachewithredis.repository.UserRepository;
+import com.springbootpractices.redis.exception.UserNotFoundException;
+import com.springbootpractices.redis.model.User;
+import com.springbootpractices.redis.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;

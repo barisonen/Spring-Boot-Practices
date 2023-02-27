@@ -1,7 +1,7 @@
-package com.springbootpractices.cachewithredis;
+package com.springbootpractices.redis;
 
-import com.springbootpractices.cachewithredis.model.User;
-import com.springbootpractices.cachewithredis.repository.UserRepository;
+import com.springbootpractices.redis.model.User;
+import com.springbootpractices.redis.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;

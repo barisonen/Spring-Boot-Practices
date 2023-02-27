@@ -1,8 +1,8 @@
-package com.springbootpractices.cachewithredis.controller;
+package com.springbootpractices.redis.controller;
 
-import com.springbootpractices.cachewithredis.exception.UserNotFoundException;
-import com.springbootpractices.cachewithredis.model.User;
-import com.springbootpractices.cachewithredis.service.UserService;
+import com.springbootpractices.redis.exception.UserNotFoundException;
+import com.springbootpractices.redis.model.User;
+import com.springbootpractices.redis.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

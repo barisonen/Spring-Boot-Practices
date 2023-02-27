@@ -1,4 +1,4 @@
-package com.springbootpractices.cachewithredis.exception;
+package com.springbootpractices.redis.exception;
 
 import lombok.Getter;
 import lombok.Setter;

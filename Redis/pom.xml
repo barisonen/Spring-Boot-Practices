@@ -8,11 +8,11 @@
         <version>3.0.2</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.springbootpractices.cachewithredis</groupId>
-    <artifactId>CacheWithRedis</artifactId>
+    <groupId>com.springbootpractices.redis</groupId>
+    <artifactId>Redis</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>CacheWithRedis</name>
-    <description>CacheWithRedis</description>
+    <name>Redis</name>
+    <description>Redis Cache and Repository</description>
     <properties>
         <java.version>17</java.version>
     </properties>
