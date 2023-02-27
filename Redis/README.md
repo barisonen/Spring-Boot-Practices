@@ -36,7 +36,7 @@ with body:<br/>
 **POST:** http://localhost:8080/redis-repository-example/create-employee
 with body:<br/>
 {<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;"name": "baris",<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;"name": "osman",<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;"surname": "onen"<br/>
 }<br/><br/>
 **GET:** http://localhost:8080/redis-repository-example/get-employee?name=osman <br/><br/>
