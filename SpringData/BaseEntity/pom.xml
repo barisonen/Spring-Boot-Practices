@@ -8,11 +8,11 @@
         <version>3.0.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.hibernate</groupId>
-    <artifactId>Hibernate</artifactId>
+    <groupId>com.springbootpractices.springdata</groupId>
+    <artifactId>BaseEntity</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>Hibernate</name>
-    <description>Hibernate</description>
+    <name>BaseEntity</name>
+    <description>BaseEntity</description>
     <properties>
         <java.version>17</java.version>
     </properties>

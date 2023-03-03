@@ -1,13 +1,13 @@
-package com.hibernate;
+package com.springbootpractices.springdata;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class HibernateApplication {
+public class BaseEntityApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(HibernateApplication.class, args);
+        SpringApplication.run(BaseEntityApplication.class, args);
     }
 
 }

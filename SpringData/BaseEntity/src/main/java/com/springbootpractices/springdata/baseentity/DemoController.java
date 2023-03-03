@@ -1,4 +1,4 @@
-package com.hibernate.baseentity;
+package com.springbootpractices.springdata.baseentity;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

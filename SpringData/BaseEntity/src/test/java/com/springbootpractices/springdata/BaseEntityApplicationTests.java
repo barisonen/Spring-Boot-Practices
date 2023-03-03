@@ -1,10 +1,10 @@
-package com.hibernate;
+package com.springbootpractices.springdata;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class HibernateApplicationTests {
+class BaseEntityApplicationTests {
 
     @Test
     void contextLoads() {

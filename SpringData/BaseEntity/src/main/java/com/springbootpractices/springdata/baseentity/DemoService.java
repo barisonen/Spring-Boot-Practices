@@ -1,4 +1,4 @@
-package com.hibernate.baseentity;
+package com.springbootpractices.springdata.baseentity;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
