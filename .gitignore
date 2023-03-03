@@ -1,6 +1,6 @@
 /target/
 !.mvn/wrapper/maven-wrapper.jar
-
+.*DS*
 ### STS ###
 .apt_generated
 .classpath
@@ -199,3 +199,6 @@ README.html
 *.iml
 .idea
 .exercism
+mvn*
+maven*
+.DS_Store
