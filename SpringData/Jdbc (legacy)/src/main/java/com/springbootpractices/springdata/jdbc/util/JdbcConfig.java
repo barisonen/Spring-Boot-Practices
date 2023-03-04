@@ -1,4 +1,4 @@
-package com.jdbc.util;
+package com.springbootpractices.springdata.jdbc.util;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

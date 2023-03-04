@@ -1,4 +1,4 @@
-package com.jdbc.entity;
+package com.springbootpractices.springdata.jdbc.entity;
 
 import lombok.Data;
 

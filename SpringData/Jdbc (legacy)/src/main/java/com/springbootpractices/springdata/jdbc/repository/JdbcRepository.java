@@ -1,7 +1,7 @@
-package com.jdbc.repository;
+package com.springbootpractices.springdata.jdbc.repository;
 
-import com.jdbc.entity.User;
-import com.jdbc.util.UserRowMapper;
+import com.springbootpractices.springdata.jdbc.entity.User;
+import com.springbootpractices.springdata.jdbc.util.UserRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;

@@ -1,7 +1,7 @@
-package com.jdbc.service;
+package com.springbootpractices.springdata.jdbc.service;
 
-import com.jdbc.entity.User;
-import com.jdbc.repository.JdbcRepository;
+import com.springbootpractices.springdata.jdbc.entity.User;
+import com.springbootpractices.springdata.jdbc.repository.JdbcRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

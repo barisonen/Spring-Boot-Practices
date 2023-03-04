@@ -1,6 +1,6 @@
-package com.jdbc.util;
+package com.springbootpractices.springdata.jdbc.util;
 
-import com.jdbc.entity.User;
+import com.springbootpractices.springdata.jdbc.entity.User;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;

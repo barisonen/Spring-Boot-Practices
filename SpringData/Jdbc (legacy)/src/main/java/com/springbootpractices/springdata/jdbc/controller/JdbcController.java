@@ -1,7 +1,7 @@
-package com.jdbc.controller;
+package com.springbootpractices.springdata.jdbc.controller;
 
-import com.jdbc.entity.User;
-import com.jdbc.service.JdbcService;
+import com.springbootpractices.springdata.jdbc.entity.User;
+import com.springbootpractices.springdata.jdbc.service.JdbcService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
