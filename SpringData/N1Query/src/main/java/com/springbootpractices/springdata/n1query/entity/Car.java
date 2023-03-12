@@ -26,4 +26,9 @@ public class Car {
 
     @Column(name = "model")
     private String model;
+
+    @Override
+    public String toString() {
+        return "brand: " + brand + " model: " + model;
+    }
 }
