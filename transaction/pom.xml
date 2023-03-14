@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.springbootpractices</groupId>
-    <artifactId>transaction</artifactId>
+    <artifactId>Transaction</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>transaction</name>
-    <description>transaction</description>
+    <name>Transaction</name>
+    <description>Transaction</description>
     <properties>
         <java.version>17</java.version>
     </properties>
