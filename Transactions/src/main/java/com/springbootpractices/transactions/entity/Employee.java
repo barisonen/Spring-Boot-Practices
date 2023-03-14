@@ -1,4 +1,4 @@
-package com.springbootpractices.transaction.entity;
+package com.springbootpractices.transactions.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;

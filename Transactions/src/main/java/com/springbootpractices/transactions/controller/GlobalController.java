@@ -1,6 +1,6 @@
-package com.springbootpractices.transaction.controller;
+package com.springbootpractices.transactions.controller;
 
-import com.springbootpractices.transaction.service.GlobalService;
+import com.springbootpractices.transactions.service.GlobalService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

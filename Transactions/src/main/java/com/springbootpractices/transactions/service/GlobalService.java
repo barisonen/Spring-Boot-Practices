@@ -1,7 +1,7 @@
-package com.springbootpractices.transaction.service;
+package com.springbootpractices.transactions.service;
 
-import com.springbootpractices.transaction.entity.Employee;
-import com.springbootpractices.transaction.repository.EmployeeRepository;
+import com.springbootpractices.transactions.entity.Employee;
+import com.springbootpractices.transactions.repository.EmployeeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

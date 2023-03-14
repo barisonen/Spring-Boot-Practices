@@ -1,6 +1,6 @@
-package com.springbootpractices.transaction.repository;
+package com.springbootpractices.transactions.repository;
 
-import com.springbootpractices.transaction.entity.Employee;
+import com.springbootpractices.transactions.entity.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
