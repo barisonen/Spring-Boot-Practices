@@ -8,7 +8,7 @@
         <version>3.0.2</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.springbootpractices.log</groupId>
+    <groupId>com.springbootpractices</groupId>
     <artifactId>Log</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Log</name>
