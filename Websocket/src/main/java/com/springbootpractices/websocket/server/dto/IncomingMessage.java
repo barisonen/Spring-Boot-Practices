@@ -9,4 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class IncomingMessage {
     private String name;
+    private String clientInfo;
+    private String content;
 }

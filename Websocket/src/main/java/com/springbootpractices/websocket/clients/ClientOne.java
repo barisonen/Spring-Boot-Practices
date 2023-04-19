@@ -6,11 +6,12 @@ import org.springframework.messaging.converter.MappingJackson2MessageConverter;
 import org.springframework.messaging.simp.stomp.StompHeaders;
 import org.springframework.messaging.simp.stomp.StompSession;
 import org.springframework.messaging.simp.stomp.StompSessionHandlerAdapter;
-import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.web.socket.client.WebSocketClient;
 import org.springframework.web.socket.client.standard.StandardWebSocketClient;
 import org.springframework.web.socket.messaging.WebSocketStompClient;
 import java.lang.reflect.Type;
+import java.util.Date;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 public class ClientOne {
@@ -23,13 +24,19 @@ public class ClientOne {
 
         ClientOneSessionHandler clientOneSessionHandler =
                 new ClientOneSessionHandler();
-        ListenableFuture<StompSession> sessionAsync =
-                stompClient.connect("ws://localhost:8080/websocket-server", clientOneSessionHandler);
+
+        CompletableFuture<StompSession> sessionAsync =
+                stompClient.connectAsync("ws://localhost:8080/websocket-server", clientOneSessionHandler);
+
         StompSession session = sessionAsync.get();
         session.subscribe("/topic/messages", clientOneSessionHandler);
+
         while (true) {
-            session.send("/app/process-message",
-                    new IncomingMessage("Baris " + System.currentTimeMillis()));
+            session.send(
+                    "/app/process-message",
+                    new IncomingMessage("Baris", "client 1", "Hiiii")
+            );
+
             Thread.sleep(2000);
         }
     }
@@ -43,7 +50,7 @@ class ClientOneSessionHandler extends StompSessionHandlerAdapter {
 
     @Override
     public void handleFrame(StompHeaders headers, Object payload) {
-        System.out.println("(Client 1) Received : " + ((OutgoingMessage) payload).getContent());
+        System.out.println("(Client 1) " + new Date() + " Received : " + ((OutgoingMessage) payload).getContent());
         System.out.println("------");
     }
 }

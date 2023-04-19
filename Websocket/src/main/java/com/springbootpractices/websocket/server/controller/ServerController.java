@@ -14,10 +14,13 @@ public class ServerController {
     public OutgoingMessage processMessage(IncomingMessage incomingMessage)
         throws Exception {
         Thread.sleep(1000);
-        System.out.println("(Server) Received : " + incomingMessage.getName());
-        String output = "Hello " + incomingMessage.getName();
-        System.out.println("(Server) Returning : " + output);
-        System.out.println("------");
+
+        String output =
+                "(Server) Hi everyone! " +
+                        incomingMessage.getName() +
+                        " from " + incomingMessage.getClientInfo() +
+                " said: " + incomingMessage.getContent();
+
         return new OutgoingMessage(output);
     }
 }
