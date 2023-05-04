@@ -1,0 +1,69 @@
+{
+	"info": {
+		"_postman_id": "fa66e0dc-a3da-4a5e-b90a-f6c56b712460",
+		"name": "Transaction",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "scenario-1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/execute/scenario-1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"execute",
+						"scenario-1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "scenario-2-1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/execute/scenario-2-1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"execute",
+						"scenario-2-1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "scenario-2-2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/execute/scenario-2-2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"execute",
+						"scenario-2-2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
