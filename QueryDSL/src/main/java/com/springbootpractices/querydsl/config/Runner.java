@@ -23,5 +23,15 @@ public class Runner implements CommandLineRunner {
         employee2.setName("asdbaasd");
         employee2.setAge(10);
         employeeRepository.save(employee2);
+
+        Employee employee3 = new Employee();
+        employee3.setName("asdbaasd");
+        employee3.setAge(2);
+        employeeRepository.save(employee3);
+
+        Employee employee4 = new Employee();
+        employee4.setName("merhaba");
+        employee4.setAge(26);
+        employeeRepository.save(employee4);
     }
 }
