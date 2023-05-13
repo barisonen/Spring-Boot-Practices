@@ -1,0 +1,69 @@
+{
+	"info": {
+		"_postman_id": "009010c7-be35-4fdb-8482-7a00329c8799",
+		"name": "QueryDSL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "find-all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/employee/find-all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employee",
+						"find-all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find-specific-employees-1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/employee/find-specific-employees-1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employee",
+						"find-specific-employees-1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find-specific-employees-2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/employee/find-specific-employees-2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employee",
+						"find-specific-employees-2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
