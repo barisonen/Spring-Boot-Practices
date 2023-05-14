@@ -30,4 +30,9 @@ public class EmployeeController {
     public List<Employee> findSpecificEmployees2() {
         return employeeService.findSpecificEmployees2();
     }
+
+    @GetMapping("/find-specific-employees-3")
+    public List<Employee> findSpecificEmployees3() {
+        return employeeService.findSpecificEmployees3();
+    }
 }

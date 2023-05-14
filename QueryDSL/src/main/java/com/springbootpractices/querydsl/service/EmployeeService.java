@@ -29,7 +29,7 @@ public class EmployeeService {
         QEmployee employee = QEmployee.employee;
 
         return query.from(employee)
-                .where(employee.name.eq("baris"))
+                .where(employee.name.eq("ba"))
                 .fetch();
     }
 
@@ -38,8 +38,17 @@ public class EmployeeService {
         QEmployee employee = QEmployee.employee;
 
         return query.from(employee)
-                .where(employee.name.contains("ba"),
+                .where(employee.name.contains("baris"),
                         employee.age.gt(5))
+                .fetch();
+    }
+
+    public List<Employee> findSpecificEmployees3() {
+        JPAQuery<Employee> query = new JPAQuery<>(entityManager);
+        QEmployee employee = QEmployee.employee;
+
+        return query.from(employee)
+                .where(employee.name.contains("oh"))
                 .fetch();
     }
 }

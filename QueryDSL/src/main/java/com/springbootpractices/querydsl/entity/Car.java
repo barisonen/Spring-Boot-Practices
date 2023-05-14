@@ -3,26 +3,24 @@ package com.springbootpractices.querydsl.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Set;
-
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Entity
-public class Employee {
+public class Car {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     @Column(name = "id")
     private Long id;
 
-    @OneToMany(mappedBy = "employee")
-    private Set<Car> cars;
+    @ManyToOne
+    @JoinColumn(name = "employee_id", nullable = false)
+    private Employee employee;
 
     @Column(name = "name")
     private String name;
 
-    @Column(name = "age")
-    private Integer age;
+    @Column(name = "brand")
+    private String brand;
 }
