@@ -57,7 +57,7 @@ public class Runner implements CommandLineRunner {
         Car car3 = Car.builder()
                 .name("john's car")
                 .brand("tesla")
-                .employee(employee2)
+                .employee(employee3)
                 .build();
 
         List<Car> cars = List.of(car1, car2, car3);

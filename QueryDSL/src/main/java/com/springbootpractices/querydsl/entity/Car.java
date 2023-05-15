@@ -3,6 +3,8 @@ package com.springbootpractices.querydsl.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
