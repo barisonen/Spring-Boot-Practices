@@ -1,14 +1,14 @@
 package com.springbootpractices.wsackrabbitmq;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
 public class MessagePublisher {
 
-    @Autowired
-    private RabbitTemplate rabbitTemplate;
+    private final RabbitTemplate rabbitTemplate;
 
     public void publishMessage(String message) {
         rabbitTemplate.convertAndSend("", "queue-name", message);
