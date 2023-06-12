@@ -21,4 +21,10 @@ public class MainController {
         mainService.process();
         return HttpStatus.OK;
     }
+
+    @GetMapping("/reset")
+    public HttpStatus reset() {
+        mainService.reset();
+        return HttpStatus.OK;
+    }
 }

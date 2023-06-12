@@ -20,7 +20,17 @@ public class MainService {
     private final StateMachine<States, Events> stateMachine;
 
     public void process() {
-        stateMachine.sendEvent(Mono.just(MessageBuilder.withPayload(Events.APPROVE).build())).subscribe();
-        stateMachine.sendEvent(Mono.just(MessageBuilder.withPayload(Events.APPROVE).build())).subscribe();
+        stateMachine
+                .sendEvent(Mono.just(MessageBuilder.withPayload(Events.APPROVE).build()))
+                .subscribe();
+        stateMachine
+                .sendEvent(Mono.just(MessageBuilder.withPayload(Events.APPROVE).build()))
+                .subscribe();
+    }
+
+    public void reset() {
+        stateMachine
+                .sendEvent(Mono.just(MessageBuilder.withPayload(Events.RESET).build()))
+                .subscribe();
     }
 }

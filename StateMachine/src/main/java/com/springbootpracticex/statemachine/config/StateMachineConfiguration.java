@@ -16,13 +16,17 @@ import org.springframework.statemachine.config.builders.StateMachineStateConfigu
 import org.springframework.statemachine.config.builders.StateMachineTransitionConfigurer;
 import org.springframework.statemachine.guard.Guard;
 
+import java.util.Random;
+
 @Log4j2
 @RequiredArgsConstructor
 @Configuration
 @EnableStateMachine
 public class StateMachineConfiguration extends StateMachineConfigurerAdapter<States, Events> {
 
+    private static final String COMPANY_SECRET_MESSAGE = "STATE_MACHINE_X";
     private final StateMachineListener stateMachineListener;
+    Random random = new Random();
 
     @Override
     public void configure(StateMachineConfigurationConfigurer<States, Events> config)
@@ -33,8 +37,8 @@ public class StateMachineConfiguration extends StateMachineConfigurerAdapter<Sta
     @Override
     public void configure(StateMachineStateConfigurer<States, Events> states) throws Exception {
         states.withStates()
-                .initial(States.PEER_REVIEW)
-                .state(States.PRINCIPAL_REVIEW)
+                .initial(States.COLLEAGUE_REVIEW)
+                .state(States.TEAM_LEAD_REVIEW)
                 .end(States.APPROVED)
                 .end(States.REJECTED);
     }
@@ -44,67 +48,86 @@ public class StateMachineConfiguration extends StateMachineConfigurerAdapter<Sta
             throws Exception {
         transitions
                 .withExternal()
-                .source(States.PEER_REVIEW)
-                .target(States.PRINCIPAL_REVIEW)
+                .source(States.COLLEAGUE_REVIEW)
+                .target(States.TEAM_LEAD_REVIEW)
                 .event(Events.APPROVE)
+                .action(executeAction())
                 .and()
                 .withExternal()
-                .source(States.PRINCIPAL_REVIEW)
+                .source(States.TEAM_LEAD_REVIEW)
                 .target(States.APPROVED)
                 .event(Events.APPROVE)
+                .action(executeAction())
+                .guard(guard())
                 .and()
                 .withExternal()
-                .source(States.PEER_REVIEW)
+                .source(States.COLLEAGUE_REVIEW)
                 .target(States.REJECTED)
                 .event(Events.REJECT)
                 .and()
                 .withExternal()
-                .source(States.PRINCIPAL_REVIEW)
+                .source(States.TEAM_LEAD_REVIEW)
                 .target(States.REJECTED)
-                .event(Events.REJECT);
+                .event(Events.REJECT)
+                .and()
+                .withExternal()
+                .source(States.COLLEAGUE_REVIEW)
+                .target(States.COLLEAGUE_REVIEW)
+                .event(Events.RESET)
+                .and()
+                .withExternal()
+                .source(States.TEAM_LEAD_REVIEW)
+                .target(States.COLLEAGUE_REVIEW)
+                .event(Events.RESET)
+                .and()
+                .withExternal()
+                .source(States.APPROVED)
+                .target(States.COLLEAGUE_REVIEW)
+                .event(Events.RESET)
+                .and()
+                .withExternal()
+                .source(States.APPROVED)
+                .target(States.COLLEAGUE_REVIEW)
+                .event(Events.RESET);
     }
 
     @Bean
-    public Action<String, String> initAction() {
-        return ctx -> log.info(ctx.getTarget().getId());
-    }
-
-    @Bean
-    public Action<String, String> executeAction() {
+    public Action<States, Events> executeAction() {
         return ctx -> {
-            log.info("Execute " + ctx.getTarget().getId());
+            log.info("");
+            log.info("Execute " + ctx.getEvent().name());
 
-            int approvals =
-                    (int) ctx.getExtendedState().getVariables().getOrDefault("approvalCount", 0);
+            String companySecretSignature =
+                    random.nextBoolean() ? COMPANY_SECRET_MESSAGE : "BAD SIGNATURE";
 
-            approvals++;
-
-            ctx.getExtendedState().getVariables().put("approvalCount", approvals);
+            ctx.getExtendedState()
+                    .getVariables()
+                    .put("COMPANY_SECRET_SIGNATURE", companySecretSignature);
         };
     }
 
     @Bean
-    public Action<String, String> errorAction() {
-        return ctx -> log.info("Error " + ctx.getSource().getId() + ctx.getException());
-    }
-
-    @Bean
-    public Action<String, String> entryAction() {
-        return ctx -> log.info("Entry " + ctx.getTarget().getId());
-    }
-
-    @Bean
-    public Action<String, String> exitAction() {
-        return ctx ->
-                log.info("Exit " + ctx.getSource().getId() + " -> " + ctx.getTarget().getId());
-    }
-
-    @Bean
-    public Guard<String, String> guard() {
+    public Guard<States, Events> guard() {
         return ctx -> {
-            int approvalCount =
-                    (int) ctx.getExtendedState().getVariables().getOrDefault("approvalCount", 0);
-            return approvalCount > 0;
+            String givenSecretSignature =
+                    (String)
+                            ctx.getExtendedState()
+                                    .getVariables()
+                                    .getOrDefault("COMPANY_SECRET_SIGNATURE", null);
+
+            log.info("Guard: Checking if company secret signature is correct.");
+            log.info("Given signature: " + givenSecretSignature);
+            log.info("Company Signature: " + COMPANY_SECRET_MESSAGE);
+
+            boolean result = COMPANY_SECRET_MESSAGE.equals(givenSecretSignature);
+
+            if (result) {
+                log.info("Signature validated! Guard gave the permission");
+                return true;
+            } else {
+                log.info("Signature not valid! Guard is stopping the process.");
+                return false;
+            }
         };
     }
 }

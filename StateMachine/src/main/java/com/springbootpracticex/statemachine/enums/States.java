@@ -1,5 +1,5 @@
 package com.springbootpracticex.statemachine.enums;
 
 public enum States {
-    PEER_REVIEW, PRINCIPAL_REVIEW, APPROVED, REJECTED
+    COLLEAGUE_REVIEW, TEAM_LEAD_REVIEW, APPROVED, REJECTED
 }
