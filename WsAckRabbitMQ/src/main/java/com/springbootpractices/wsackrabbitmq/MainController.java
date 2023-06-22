@@ -13,10 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class MainController {
 
     private final MessagePublisher messagePublisher;
+    private final WebSocketSender webSocketSender;
 
     @PostMapping("/send-message")
     public HttpStatus sendMessage(@RequestBody String message) {
         messagePublisher.publishMessage(message);
+        webSocketSender.sendMessage("/topic/chat", message);
+
         return HttpStatus.OK;
     }
 }
