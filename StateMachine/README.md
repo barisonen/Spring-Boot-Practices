@@ -3,9 +3,9 @@
 In this very good software company, <br/>
 There are 2 stages of code approval process. <br/><br/>
 Scenarios are as follows: <br/><br/>
-Colleague approved ->  Team Leader approved -> **APPROVED** <br/>
 Colleague rejeced -> **REJECTED** <br/>
-Team Leader rejected -> **REJECTED** <br/>
+Colleague approved -> Team Leader rejected -> **REJECTED** <br/>
+Colleague approved ->  Team Leader approved -> **APPROVED** <br/>
 
 Also the Colleague is a bit silly, who sometimes forget to sign their approval with the secret company
 signature. <br/> <br/>
