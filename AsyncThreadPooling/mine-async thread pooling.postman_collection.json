@@ -1,0 +1,84 @@
+{
+	"info": {
+		"_postman_id": "a406d386-7e15-400f-aca5-36cdb5b5e792",
+		"name": "mine-async thread pooling",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29093519"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/users",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "files",
+							"type": "file",
+							"src": "/Users/barisonen/coding/Spring-Boot-Practices/AsyncThreadPooling/MOCK_DATA.csv"
+						},
+						{
+							"key": "files",
+							"type": "file",
+							"src": "/Users/barisonen/coding/Spring-Boot-Practices/AsyncThreadPooling/MOCK_DATA (1).csv"
+						},
+						{
+							"key": "files",
+							"type": "file",
+							"src": "/Users/barisonen/coding/Spring-Boot-Practices/AsyncThreadPooling/MOCK_DATA (2).csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/get-users-async",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/get-users-async",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"get-users-async"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
